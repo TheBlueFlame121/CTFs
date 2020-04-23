@@ -9,7 +9,7 @@ Can you unzip this [file](https://2018shell.picoctf.com/static/2fa508658d9191851
 
 ## Solution
  Downloading the zip file and simply extracting it gives the following image:
- !(https://i.imgur.com/xYxMicG.jpg)
+ ![https://i.imgur.com/xYxMicG.jpg](https://i.imgur.com/xYxMicG.jpg)
 
 
 ## Flag
