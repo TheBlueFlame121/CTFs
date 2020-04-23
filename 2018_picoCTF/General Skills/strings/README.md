@@ -8,7 +8,7 @@
  [strings](https://linux.die.net/man/1/strings)
 
 ## Solution
- Just run the strings command on the file given `strings strings| grep pico'
+ Just run the strings command on the file given `strings strings| grep pico`
 
 
 ## Flag
