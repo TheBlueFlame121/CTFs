@@ -2,7 +2,7 @@
  Forensics, 50 points
 
 ## Description
- Hmm for some reason I can't open this PNG[https://2018shell.picoctf.com/static/0fde1a3e09824365348827194db9cdde/flag.png]? Any ideas? 
+ Hmm for some reason I can't open this [PNG](https://2018shell.picoctf.com/static/0fde1a3e09824365348827194db9cdde/flag.png)? Any ideas? 
 
 ## Hints
  How do operating systems know what kind of file it is? (It's not just the ending!
