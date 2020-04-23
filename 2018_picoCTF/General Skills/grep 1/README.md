@@ -9,7 +9,8 @@
 
 ## Solution
  we just run the grep command on the file given:
- `grep pico file`
+ 
+ `$ grep pico file`
 
 
 ## Flag
