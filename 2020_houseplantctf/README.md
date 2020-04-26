@@ -1,0 +1,1 @@
+This is the writeup of cryptography for the houseplant ctf 2020 in which I participated with my team. I had lot's of fun solving various challenges in this ctf and looking forward to more events from them in the future. I've also included the writeup of a forensics challenge that I really liked.
