@@ -1,5 +1,5 @@
 # Rainbow Vomit
- cryptography, xx points
+ cryptography, 535 points
 
 ## Description
  o.O What did YOU eat for lunch?!
