@@ -1,5 +1,5 @@
 # .... .- .-.. ..-.
- cryptography, xx points
+ cryptography, 1696 points
 
 ## Description
   Ciphertext: DXKGMXEWNWGPJTCNVSHOBGASBTCBHPQFAOESCNODGWTNTCKY
