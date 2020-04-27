@@ -1,5 +1,5 @@
 # Parasite
- cryptography, xx points
+ cryptography, 784 points
 
 ## Description
  paraSite Killed me A liTtle inSide
