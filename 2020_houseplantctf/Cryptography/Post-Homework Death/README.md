@@ -1,5 +1,5 @@
 # Post-Homework Death
- cryptoghaphy, xx points
+ cryptoghaphy, 570 points
 
 ## Description
 My math teacher made me do this, so now I'm forcing you to do this too.
