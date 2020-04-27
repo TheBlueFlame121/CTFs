@@ -1,5 +1,5 @@
 # 11
- cryptography, xx points
+ cryptography, 1527 points
 
 ## Description
  I wrote a quick script, would you like to read it? - Delphine
