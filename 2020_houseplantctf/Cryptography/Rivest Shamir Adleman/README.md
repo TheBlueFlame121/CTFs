@@ -1,5 +1,5 @@
 # Rivest Shamir Adleman
- cryptography, xx points
+ cryptography, 338 points
 
 ## Description
  A while back I wrote a Python implementation of RSA, but Python's really slow at maths. Especially generating primes.
