@@ -2,7 +2,7 @@
 ## The Challenge
 I really liked this challenge, mainly because once you read the solution it seems really trivial and yet there were only 3 solves during the CTF. Here we have to calculate a Discrete Logarithm with Gaussian Integers over Integers mod N.
 
-I myself could not solve this challenge during the CTF, I was on the right track but I don't think I would've got the flag. So this writeup was made after the CTF when I've spent time going through rkm's writeup, and a bit of talking with hellman and NDH.
+I could not solve this challenge during the CTF, I was on the right track but I don't think I would've got the flag. So this writeup was made after the CTF when I've spent time going through rkm's writeup, and a bit of talking with hellman and NDH.
 
 Link to rkm's writeup: [https://rkm0959.tistory.com/192](https://https://rkm0959.tistory.com/192)
 
