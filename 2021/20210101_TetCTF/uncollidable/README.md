@@ -158,7 +158,6 @@ I had a sneaking suspicion that given the relatively low number of solves, this 
 if min(key_lengths) < 32 <= max(key_lengths):
 ```
 We needed one of the keys to be atleast 32 bytes long. This would mean that the key would be hashed. So now we needed to find a seed, whose sha256 hash ends with 9 null bytes. If we found that we could send the keys as:<br>
-<br>
 ```
 key1 = seed
 key2 = sha256(seed).digest()[:-1]

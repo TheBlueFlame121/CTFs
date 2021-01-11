@@ -1,11 +1,11 @@
 # Unevaluated
 ## The Challenge
-I really liked this challenge, mainly because once you read the solution it seems really trivial and yet there were only 3 solves during the CTF. Here we have to calculate a Discrete Logarithm with Gaussian Integers over Integers mod N.
-
-I could not solve this challenge during the CTF, I was on the right track but I don't think I would've got the flag. So this writeup was made after the CTF when I've spent time going through rkm's writeup, and a bit of talking with hellman and NDH.
-
+I really liked this challenge, mainly because once you read the solution it seems really trivial and yet there were only 3 solves during the CTF. Here we have to calculate a Discrete Logarithm with Gaussian Integers over Integers mod N.<br>
+<br>
+I could not solve this challenge during the CTF, I was on the right track but I don't think I would've got the flag. So this writeup was made after the CTF when I've spent time going through rkm's writeup, and a bit of talking with hellman and NDH.<br>
+<br>
 Link to rkm's writeup: [https://rkm0959.tistory.com/192](https://https://rkm0959.tistory.com/192)
-
+<br>
 ### Parameter Generation
 Looking at the `generate_params` method inside the `ComplexDiffieHellman` class we can see how the parameters are being generated. 
 ```python=
@@ -64,14 +64,15 @@ def main():
 Inside the main function, we can see that a 32 byte private key is randomly generated, using which our flag is encrypted by AES ECB. We are given the Discrete log parameters and a public key, which is just the generator raised to the power of our secret key. So like the comment says, we just have to solve the discrete log to get the private key and then we can have our flag.
 
 ## Solution Idea
-First off, as rkm points out in his writeup, there is a flaw in the key generation. The order of the ring is ~384 bits long but the AES private key generated is only 256 bits long. This means that we might not have to calculate the discrete log completely but we can compute it over some part such that it becomes 256 bits long.
-
-Rkm does this by splitting the discrete log mod p, then mod r and using CRT to combine the result, you can read about it in his writeup which also contains a lot more mathematical explanations. NDH later pointed out that you can just compute dlog over the norm map, and since it is mod $p^2$, it will be sufficiently long. This is the method I have described here.
-
-So, there exists a homomorphism from the Gaussian integers in this ring to Reals over the ring of integers mod $n$. This is called the norm map and is defined as:
+First off, as rkm points out in his writeup, there is a flaw in the key generation. The order of the ring is ~384 bits long but the AES private key generated is only 256 bits long. This means that we might not have to calculate the discrete log completely but we can compute it over some part such that it becomes 256 bits long.<br>
+<br>
+Rkm does this by splitting the discrete log mod p, then mod r and using CRT to combine the result, you can read about it in his writeup which also contains a lot more mathematical explanations. NDH later pointed out that you can just compute dlog over the norm map, and since it is mod $p^2$, it will be sufficiently long. This is the method I have described here.<br>
+<br>
+So, there exists a homomorphism from the Gaussian integers in this ring to Reals over the ring of integers mod $n$. This is called the norm map and is defined as:<br>
 $$
 Norm(a + ib) = a^2 + b^2
 $$
+<br>
 It's doesn't take much to verify that this indeed is a homomorphism.
 Now we can simply compute discrete log in $Zmod(n)$. We can write a simple function for that:
 ```python=
@@ -79,12 +80,12 @@ def n(c):
     return (c.re**2 + c.im**2)%n
 ```
 
-Once we are done with the dlog, we might have to adjust the value by adding the order a few times to find the correct key.
+Once we are done with the dlog, we might have to adjust the value by adding the order a few times to find the correct key.<br>
+<br>
+Note: While using Sage, both `public_key.log(g)` and `discrete_log(public_key, g)` cause Sage to crash for some reason. Which sucks because I thought my approach was wrong because of this. You can get it to work by using the `znlog` in pari via Sage, which is what I've done in the final script.<br>
 
-Note: While using Sage, both `public_key.log(g)` and `discrete_log(public_key, g)` cause Sage to crash for some reason. Which sucks because I thought my approach was wrong because of this. You can get it to work by using the `znlog` in pari via Sage, which is what I've done in the final script.
-
-Another thing to note: The order of a generator in $Zmod(n)$ would be $p(p-1)$. If we factorise the order we get $2*p*x$ where x is another prime. Now recall how our generator was raised to 24 during parameter generation, this means that it's order now will only be $p*x$ instead of $2*p*x$. This was something I would've definitely missed even if I got through the dlog step.
-
+Another thing to note: The order of a generator in $Zmod(n)$ would be $p(p-1)$. If we factorise the order we get $2*p*x$ where x is another prime. Now recall how our generator was raised to 24 during parameter generation, this means that it's order now will only be $p*x$ instead of $2*p*x$. This was something I would've definitely missed even if I got through the dlog step.<br>
+<br>
 With all of this theory, we can get the flag using the final script
 
 ## Script
