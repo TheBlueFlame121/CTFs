@@ -157,10 +157,9 @@ I had a sneaking suspicion that given the relatively low number of solves, this 
 ```python=
 if min(key_lengths) < 32 <= max(key_lengths):
 ```
-<br>
 We needed one of the keys to be atleast 32 bytes long. This would mean that the key would be hashed. So now we needed to find a seed, whose sha256 hash ends with 9 null bytes. If we found that we could send the keys as:<br>
 <br>
-```python=
+```
 key1 = seed
 key2 = sha256(seed).digest()[:-1]
 key3 = sha256(seed).digest()[:-2]
@@ -168,7 +167,6 @@ key3 = sha256(seed).digest()[:-2]
 .
 key10 = sha256(seed).digest()[:-9]
 ```
-<br>
 So now the question is how do we get such a seed?
 Well I tried bruteforcing it (spoiler: it doesn't work). It took my script 4.5 hours to give me a seed whose sha256 ends with just four zeros. I tried looking up if the seed I needed was already used elsewhere, but maybe I didn't phrase it properly because I couldn't find anything.<br>
 <br>
